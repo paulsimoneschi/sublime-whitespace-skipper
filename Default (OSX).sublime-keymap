@@ -1,0 +1,4 @@
+[
+	{ "keys": ["ctrl+shift+]"], "command": "skip_whitespace", "context": [{"key": "direction_down"}]},
+	{ "keys": ["ctrl+shift+["], "command": "skip_whitespace", "context": [{"key": "direction_up"}]}
+]
