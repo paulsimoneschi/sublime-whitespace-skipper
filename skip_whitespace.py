@@ -25,7 +25,18 @@ class SkipWhitespaceCommand(sublime_plugin.TextCommand):
 		return None
 
 	def move_to(self, points):
-		point = self.view.text_point(points[0], points[1])
+		points = (points[0], 0)
+		first_char = ''
+
+		while first_char == '':
+			point = self.view.text_point(points[0], points[1])
+			first_char = self.view.substr(point).strip()
+
+			if first_char != '':
+				break
+
+			points = (points[0], points[1] + 1)
+
 		self.view.sel().clear()
 		self.view.sel().add(sublime.Region(point))
 		self.view.show(point)
